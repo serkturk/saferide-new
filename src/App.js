@@ -25,13 +25,6 @@ function App() {
   const renderHomePage = () => {
     return (
       <>
-        <section className="hero">
-          <div className="logo-container">
-            {/* Replace this with your actual logo */}
-            <img src="/logo-placeholder.png" alt="SafeRide Logo" className="main-logo" />
-          </div>
-        </section>
-
         <section className="routes-section">
           <h1>Common Routes</h1>
           
@@ -127,7 +120,9 @@ function App() {
   return (
     <div className="App">
       <header className="navbar">
-        <div className="logo">SafeRide</div>
+      <div className="logo">
+        <img src="/logo-placeholder.png" alt="SafeRide Logo" className="nav-logo" />
+      </div>
         <nav className="nav-links">
           <a 
             href="#booking" 

@@ -1,70 +1,60 @@
-# Getting Started with Create React App
+## SafeRide: College Shuttle Service Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is the official website for SafeRide, specializing in affordable rideshares in the Ithaca, Syracuse, and Rochester regions.
 
-## Available Scripts
+The application is built using React and features a modern, responsive design and a multi-step booking system tailored to SafeRide's specific pricing model.
 
-In the project directory, you can run:
+-----
+
+### Key Features Implemented
+
+* **Complete UI Redesign:** Modernized homepage layout using CSS with accurate branding (Navy and Light Blue).
+* **Robust Pricing Logic:** Implements SafeRide's custom flat rates for key routes (Ithaca/Cornell ↔ Syracuse/Rochester) and mocks a $1/mile round-trip calculation for other long-distance trips.
+* **Three-Step Booking Flow:** A clear user journey for reservation:
+    1.  **Get Quote:** Instant pricing based on location and riders.
+    2.  **Schedule Ride:** Placeholder link for seamless integration with the corporate **Calendly** account.
+    3.  **Secure Payment:** Integration of the **Square Web Payments SDK** for secure tokenization.
+
+-----
+
+### CORPORATE SETUP REQUIRED
+
+The application is fully coded but requires linking to your company's external services to be fully functional in production. **These steps must be completed before the application is deployed to a live domain (HTTPS):**
+
+#### 1. Configure Square Payments (Required for Step 3)
+
+The Square form is currently initialized with mock sandbox IDs. To enable real payments, you must:
+
+* **Obtain Live Credentials:** Get your Production Application ID and Location ID from your Square Developer Dashboard.
+* **Replace IDs in Code:** Update the following lines at the top of `src/BookingCalculator.js`:
+
+    ```javascript
+    const SQUARE_APP_ID = 'YOUR_LIVE_SQUARE_APPLICATION_ID';
+    const SQUARE_LOCATION_ID = 'YOUR_LIVE_SQUARE_LOCATION_ID';
+    ```
+
+#### 2. Configure Calendly Scheduling (Required for Step 2)
+
+* **Obtain Scheduling Link:** Get the embed URL for your public SafeRide booking page in Calendly.
+* **Replace Placeholder Link:** Update the `href` in the **Step 2** rendering function within `src/BookingCalculator.js` with your actual Calendly URL.
+
+-----
+
+### Available Scripts (How to Run the App)
+
+In the project directory, you can run the following standard Create React App commands:
+
+### `npm install`
+
+Installs all necessary project dependencies. Run this first after cloning the repository.
 
 ### `npm start`
 
-Runs the app in the development mode.\
+Runs the app in the development mode.
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The page will reload when you make changes.
 
 ### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Builds the app for production to the `build` folder. This is the command you run before deploying the site to a live server.
